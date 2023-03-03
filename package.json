@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Thr10/build-react-app-from-scratch/issues"
   },
-  "homepage": "https://github.com/Thr10/build-react-app-from-scratch#readme"
+  "homepage": "https://github.com/Thr10/build-react-app-from-scratch#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
 }
