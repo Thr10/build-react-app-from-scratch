@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {DefinePlugin} = require('webpack');
 
 module.exports = {
     entry: './src/index.js',
@@ -25,7 +26,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
@@ -43,5 +44,10 @@ module.exports = {
             template: 'public/index.hbs',
             description: 'Some description',
         }),
+        new DefinePlugin({
+            'process.env' : {
+                NODE_ENV: process.env.NODE_ENV
+            }
+        })
     ]
 }
