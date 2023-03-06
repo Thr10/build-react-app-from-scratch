@@ -6,4 +6,5 @@
    `npm install webpack webpack-cli --save-dev`
 
 2. 添加.gitignore
-3.
+3. 使用 MiniCssExtractPlugin 来拆分 css 文件，bundle 使用 hash，并使用 hbs 模版生成 html
+4. 添加 babel 转换代码，加载 React(18) 和 ReactDom - 打包后会导致 process 没有的问题(仅仅打包 React 才会发生)

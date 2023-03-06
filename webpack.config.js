@@ -4,13 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {DefinePlugin} = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.tsx',
     output: {
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         clean: true
     },
     mode: 'none',
+    resolve: {
+        extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    },
     module: {
         rules: [
             {
@@ -26,7 +29,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|ts)x?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
@@ -49,5 +52,12 @@ module.exports = {
                 NODE_ENV: process.env.NODE_ENV
             }
         })
-    ]
+    ],
+    devServer: {
+        static: {
+          directory: path.join(__dirname, 'dist'),
+        },
+        compress: true,
+        port: 3333,
+    },
 }
