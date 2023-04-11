@@ -1,6 +1,11 @@
 // App.tsx
 import React from 'react';
+import Header from './components/header';
 
-const App: React.FC = () => <h1>Hello React  aa</h1>;
+const App: React.FC = () => (
+  <div>
+    <Header />
+  </div>
+);
 
 export default App;
