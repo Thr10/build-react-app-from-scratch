@@ -19,7 +19,14 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader',
+          MiniCssExtractPlugin.loader, {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]_[hash:base64:5]',
+              },
+            },
+          }, 'sass-loader',
         ],
       },
       {
