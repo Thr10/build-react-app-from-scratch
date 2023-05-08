@@ -34,7 +34,9 @@
         "no-param-reassign": 0,
         "react/function-component-definition": [0, {}],
         "arrow-body-style": ["error", "always"],
-        "dot-notation": 0
+        "dot-notation": 0,
+        "import/no-extraneous-dependencies": ["off", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
+        "no-console": "off"
     },
     "settings": {
         "import/resolver": {
