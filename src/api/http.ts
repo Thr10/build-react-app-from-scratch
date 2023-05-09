@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { message } from 'antd';
 
 const instance = axios.create({
   timeout: 2000,
@@ -20,14 +21,16 @@ instance.interceptors.response.use((response) => {
 }, (error) => {
   if (error && error.response) {
     switch (error.response.status) {
+      // 处理不同的错误状态码会有不同的动作
+      // 比如401登陆超时，需要自动跳转到登陆页面等等
       case 400:
-        console.log('错误请求');
+        message.error(error.response.data.error);
         break;
       case 500:
-        console.log('服务端错误');
+        message.error(error.response.data.error);
         break;
       default:
-        console.log('错误');
+        message.error(error.response.data.error);
     }
   }
   return Promise.reject(error);
@@ -37,7 +40,7 @@ const post = <T, S>(api:string, data:S, headers:any = {}) => {
   headers['Content-Type'] = 'application/json;charset=utf-8';
   return new Promise<T>((resolve, reject) => {
     instance.post(api, data, { headers })
-      .then((res) => { resolve(res as T); })
+      .then((res) => { resolve(res.data as T); })
       .catch((error) => { reject(error); });
   });
 };
