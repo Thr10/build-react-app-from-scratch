@@ -1,7 +1,9 @@
 // App.tsx
 import React from 'react';
+import { Button } from 'antd';
 import Header from './components/header';
 import { register } from './api/user';
+import 'antd/dist/reset.css';
 
 const App: React.FC = () => {
   const handleClick = async () => {
@@ -17,7 +19,7 @@ const App: React.FC = () => {
   };
   return (
     <div>
-      <button onClick={handleClick} type="button">注册</button>
+      <Button onClick={handleClick}>注册</Button>
       <Header />
     </div>
   );
