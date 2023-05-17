@@ -21,7 +21,6 @@ const App: React.FC = () => {
   return (
     <div>
       <Button onClick={handleClick}>注册</Button>
-      <Header />
     </div>
   );
 };
